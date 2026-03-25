@@ -90,7 +90,9 @@ async def heartbeat(payload: dict, db: Session = Depends(get_db)):
     if "newPressureScore" in payload:
         profile = agent.thermo_profile or {}
         profile["currentPressureScore"] = payload["newPressureScore"]
-        agent.thermo_profile = profile
+        from sqlalchemy.orm.attributes import flag_modified
+    agent.thermo_profile = profile
+    flag_modified(agent, "thermo_profile")
     db.commit()
     return {"status": "ok", "agentId": payload.get("agentId")}
 
