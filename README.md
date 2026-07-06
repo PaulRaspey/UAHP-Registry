@@ -1,3 +1,5 @@
+Consolidated into github.com/PaulRaspey/uahp. Archived for history; tags remain browsable.
+
 ## The UAHP Agentic Stack
 
 Four layers. One complete infrastructure for the agentic web.
